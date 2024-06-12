@@ -1,0 +1,23 @@
+<div class="movie-card">
+  <img src="{{movie.Poster}}"
+       alt="{{movie.Title}}" class="movie-poster" />
+  <div class="movie-details">
+    <h2>{{ movie.Title }}</h2>
+    <p>{{ movie.Year }}</p>
+    <p>{{ movie.Type }}</p>
+
+
+    <div class="movie-info">
+      @if (searchDetails && !isReadMore) {
+        @for (searchEntries of Object.entries(searchDetails); track searchEntries[0]) {
+          @if (searchEntries[1].toString() !== 'N/A') {
+            <p><strong>{{ searchEntries[0] }}:</strong> {{ searchEntries[1] }}</p>
+          }
+        }
+      }
+    </div>
+
+    <button *ngIf="isReadMore" (click)="openReadMoreDetails()" class="read-more-button">Read More</button>
+    <button *ngIf="!isReadMore" (click)="closeReadMoreDetails()" class="read-more-button">Close</button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="search-container">
+  <h1>Search {{ siteName }} Movies!</h1>
+  <div class="search-box">
+    <span>Enter movie Name: </span>
+    <input type="text" [(ngModel)]="searchData" class="search-input"/>
+    <button (click)="searchMovie()" name="search" class="search-button">Search</button>
+  </div>
+</div>
+
+@if (movieSearchResult != undefined && movieSearchResult.Search.length > 0) {
+  <div class="results-info">
+    <span>Total results: {{ movieSearchResult.totalResults }}</span>
+  </div>
+  <div class="movie-list">
+    @for (movie of movieSearchResult.Search; track movie) {
+      <app-movie-card [movie]=movie></app-movie-card>
+    }
+  </div>
+
+  <div class="pagination">
+    <button [disabled]="currentPage === 1" (click)="goToPreviousPage()">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="goToNextPage()">Next</button>
+  </div>
+}
