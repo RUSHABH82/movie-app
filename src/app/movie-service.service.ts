@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError, Observable, Observer, throwError} from "rxjs";
-import {MovieSearchResult, ResponseStatus} from "./movie/movie.component";
-import {Search, SearchDetails} from "./movie/movie-card/movie-card.component";
+import {catchError, Observable, throwError} from "rxjs";
+import {ResponseStatus} from "./movie/movie.component";
+import {Search} from "./movie/movie-card/movie-card.component";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class MovieServiceService {
   private API_KEY = process.env['API_KEY'] || '';
 
   searchMovieByPage(text: string, page: number) {
-    console.log(process.env)
+    console.log(this.API_KEY)
     return this.httpClient
       .get("https://www.omdbapi.com/?apikey="+this.API_KEY+"&s=".concat(text).concat('&page=').concat(page.toString()))
       .pipe(catchError(this.handleError));
