@@ -44,7 +44,6 @@ export class MovieServiceService {
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
-    console.log(process.env)
   }
 
   private handleError(error: HttpErrorResponse) {
