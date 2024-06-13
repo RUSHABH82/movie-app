@@ -10,7 +10,7 @@ import {Search} from "./movie/movie-card/movie-card.component";
 export class MovieServiceService {
 
   private httpClient: HttpClient
-  private API_KEY = process.env['API_KEY'] || '';
+  private API_KEY = /*process.env['API_KEY'] ||*/ 'd4d72c42';
 
   searchMovieByPage(text: string, page: number) {
     console.log(this.API_KEY)
