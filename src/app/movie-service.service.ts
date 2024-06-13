@@ -13,7 +13,6 @@ export class MovieServiceService {
   private API_KEY = /*process.env['API_KEY'] ||*/ 'd4d72c42';
 
   searchMovieByPage(text: string, page: number) {
-    console.log(this.API_KEY)
     return this.httpClient
       .get("https://www.omdbapi.com/?apikey="+this.API_KEY+"&s=".concat(text).concat('&page=').concat(page.toString()))
       .pipe(catchError(this.handleError));
