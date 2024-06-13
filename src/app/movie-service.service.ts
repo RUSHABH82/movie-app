@@ -10,10 +10,12 @@ import {Search, SearchDetails} from "./movie/movie-card/movie-card.component";
 export class MovieServiceService {
 
   private httpClient: HttpClient
+  private API_KEY = process.env['API_KEY'] || '';
 
   searchMovieByPage(text: string, page: number) {
+    console.log(process.env)
     return this.httpClient
-      .get("https://www.omdbapi.com/?apikey=d4d72c42&s=".concat(text).concat('&page=').concat(page.toString()))
+      .get("https://www.omdbapi.com/?apikey="+this.API_KEY+"&s=".concat(text).concat('&page=').concat(page.toString()))
       .pipe(catchError(this.handleError));
   }
 
@@ -43,8 +45,7 @@ export class MovieServiceService {
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
-
-
+    console.log(process.env)
   }
 
   private handleError(error: HttpErrorResponse) {
