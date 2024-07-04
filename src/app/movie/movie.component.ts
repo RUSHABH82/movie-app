@@ -36,7 +36,7 @@ export class MovieComponent {
       }
       this.movieSearchResult = res;
       this.totalPages = Math.ceil(this.movieSearchResult.totalResults / 10);
-      this.currentPage = 1;
+      this.currentPage = page;
     });
   }
 
