@@ -1,8 +1,8 @@
-import {Component, Inject, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
 import {MovieServiceService} from "../movie-service.service";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {MovieCardComponent} from "./movie-card/movie-card.component";
 
 @Component({
@@ -36,6 +36,7 @@ export class MovieComponent {
       }
       this.movieSearchResult = res;
       this.totalPages = Math.ceil(this.movieSearchResult.totalResults / 10);
+      this.currentPage = 1;
     });
   }
 

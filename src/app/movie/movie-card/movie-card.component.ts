@@ -20,8 +20,10 @@ export class MovieCardComponent {
   ('movie') movie: Search = {Poster: "", Title: "", Type: "", Year: "", imdbID: ""};
   searchDetails: SearchDetails | undefined;
   isReadMore: boolean = true;
+  protected readonly Object = Object;
 
-  constructor(public movieService: MovieServiceService) {}
+  constructor(public movieService: MovieServiceService) {
+  }
 
   openReadMoreDetails() {
     if (!this.searchDetails) {
@@ -53,7 +55,6 @@ export class MovieCardComponent {
   closeReadMoreDetails() {
     this.isReadMore = true;
   }
-  protected readonly Object = Object;
 }
 
 export interface Search {

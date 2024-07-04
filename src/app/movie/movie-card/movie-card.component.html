@@ -1,6 +1,6 @@
 <div class="movie-card">
-  <img src="{{movie.Poster}}"
-       alt="{{movie.Title}}" class="movie-poster" />
+  <img alt="{{movie.Title}}"
+       class="movie-poster" src="{{movie.Poster}}"/>
   <div class="movie-details">
     <h2>{{ movie.Title }}</h2>
     <p>{{ movie.Year }}</p>
@@ -17,7 +17,7 @@
       }
     </div>
 
-    <button *ngIf="isReadMore" (click)="openReadMoreDetails()" class="read-more-button">Read More</button>
-    <button *ngIf="!isReadMore" (click)="closeReadMoreDetails()" class="read-more-button">Close</button>
+    <button (click)="openReadMoreDetails()" *ngIf="isReadMore" class="read-more-button">Read More</button>
+    <button (click)="closeReadMoreDetails()" *ngIf="!isReadMore" class="read-more-button">Close</button>
   </div>
 </div>

@@ -12,9 +12,13 @@ export class MovieServiceService {
   private httpClient: HttpClient
   private API_KEY = /*process.env['API_KEY'] ||*/ 'd4d72c42';
 
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient;
+  }
+
   searchMovieByPage(text: string, page: number) {
     return this.httpClient
-      .get("https://www.omdbapi.com/?apikey="+this.API_KEY+"&s=".concat(text).concat('&page=').concat(page.toString()))
+      .get("https://www.omdbapi.com/?apikey=" + this.API_KEY + "&s=".concat(text).concat('&page=').concat(page.toString()))
       .pipe(catchError(this.handleError));
   }
 
@@ -40,10 +44,6 @@ export class MovieServiceService {
     })
     return res;
 
-  }
-
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
   }
 
   private handleError(error: HttpErrorResponse) {
