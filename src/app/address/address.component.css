@@ -15,7 +15,8 @@
 .title {
   font-style: italic;
 }
-.toggle-btn{
+
+.toggle-btn {
   justify-content: end;
   display: block;
 

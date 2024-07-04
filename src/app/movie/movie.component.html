@@ -2,8 +2,8 @@
   <h1>Search {{ siteName }} Movies!</h1>
   <div class="search-box">
     <span>Enter movie Name: </span>
-    <input type="text" [(ngModel)]="searchData" class="search-input"/>
-    <button (click)="searchMovie()" name="search" class="search-button">Search</button>
+    <input [(ngModel)]="searchData" class="search-input" type="text"/>
+    <button (click)="searchMovie()" class="search-button" name="search">Search</button>
   </div>
 </div>
 
